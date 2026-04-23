@@ -20,8 +20,12 @@ function App() {
         <Projects projects={projects} />
         <Contact
           links={[
-            { label: 'Email', value: '506905826@qq.com' },
-            { label: 'GitHub', href: 'https://github.com/hiqanupeyi82-source' },
+            { kind: 'copy', label: 'Email', value: '506905826@qq.com' },
+            {
+              kind: 'link',
+              label: 'GitHub',
+              href: 'https://github.com/hiqanupeyi82-source',
+            },
           ]}
         />
       </main>

@@ -1,9 +1,8 @@
 import { useMemo, useState } from 'react'
 
-type ContactLink = { label: string } & (
-  | { href: string; value?: never }
-  | { value: string; href?: never }
-)
+type ContactLink =
+  | { kind: 'link'; label: string; href: string }
+  | { kind: 'copy'; label: string; value: string }
 
 type ContactProps = {
   links: ContactLink[]
@@ -54,47 +53,51 @@ export function Contact({ links }: ContactProps) {
         <div className="mt-7 rounded-2xl border border-black/10 bg-white p-6 shadow-sm sm:p-8">
           <div className="flex flex-wrap gap-3">
             {links.map((l) => {
-              if ('href' in l && l.href) {
-                const href = l.href
-                const isMailto = href.startsWith('mailto:')
+              switch (l.kind) {
+                case 'link': {
+                  const isMailto = l.href.startsWith('mailto:')
 
-                return (
-                  <a
-                    key={href}
-                    className={buttonClassName}
-                    href={href}
-                    target={isMailto ? undefined : '_blank'}
-                    rel={isMailto ? undefined : 'noreferrer'}
-                  >
-                    {l.label}
-                  </a>
-                )
+                  return (
+                    <a
+                      key={l.href}
+                      className={buttonClassName}
+                      href={l.href}
+                      target={isMailto ? undefined : '_blank'}
+                      rel={isMailto ? undefined : 'noreferrer'}
+                    >
+                      {l.label}
+                    </a>
+                  )
+                }
+                case 'copy': {
+                  const isShown = !!revealed[l.label]
+                  const isCopied = !!copied[l.label]
+
+                  return (
+                    <button
+                      key={l.label}
+                      type="button"
+                      className={buttonClassName}
+                      onClick={async () => {
+                        try {
+                          await copyToClipboard(l.value)
+                          setCopied((p) => ({ ...p, [l.label]: true }))
+                          window.setTimeout(
+                            () => setCopied((p) => ({ ...p, [l.label]: false })),
+                            1200
+                          )
+                        } finally {
+                          setRevealed((prev) => ({ ...prev, [l.label]: true }))
+                        }
+                      }}
+                    >
+                      {isCopied ? '已复制' : isShown ? l.value : l.label}
+                    </button>
+                  )
+                }
+                default:
+                  return null
               }
-
-              const isShown = !!revealed[l.label]
-              const isCopied = !!copied[l.label]
-
-              return (
-                <button
-                  key={l.label}
-                  type="button"
-                  className={buttonClassName}
-                  onClick={async () => {
-                    try {
-                      await copyToClipboard(l.value)
-                      setCopied((p) => ({ ...p, [l.label]: true }))
-                      window.setTimeout(
-                        () => setCopied((p) => ({ ...p, [l.label]: false })),
-                        1200
-                      )
-                    } finally {
-                      setRevealed((prev) => ({ ...prev, [l.label]: true }))
-                    }
-                  }}
-                >
-                  {isCopied ? '已复制' : isShown ? l.value : l.label}
-                </button>
-              )
             })}
           </div>
         </div>
