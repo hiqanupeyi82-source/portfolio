@@ -1,4 +1,5 @@
 import usbImg from '../assets/usb.png'
+import heroImg from '../assets/hero.png'
 
 export type Project = {
   name: string
@@ -19,4 +20,12 @@ export const projects: Project[] = [
     imageSrc: usbImg,
     imageAlt: 'Portfolio project screenshot',
   },
+  {
+    name: '项目名',
+    description: '一句话描述',
+    techStack: ['React', 'TypeScript'],
+    href: 'https://github.com/xxx/yyy', 
+    imageSrc: heroImg,
+    imageAlt: '项目截图',
+  }
 ]
