@@ -54,14 +54,15 @@ export function Contact({ links }: ContactProps) {
         <div className="mt-7 rounded-2xl border border-black/10 bg-white p-6 shadow-sm sm:p-8">
           <div className="flex flex-wrap gap-3">
             {links.map((l) => {
-              if ('href' in l) {
-                const isMailto = l.href.startsWith('mailto:')
+              if ('href' in l && l.href) {
+                const href = l.href
+                const isMailto = href.startsWith('mailto:')
 
                 return (
                   <a
-                    key={l.href}
+                    key={href}
                     className={buttonClassName}
-                    href={l.href}
+                    href={href}
                     target={isMailto ? undefined : '_blank'}
                     rel={isMailto ? undefined : 'noreferrer'}
                   >
