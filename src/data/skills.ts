@@ -4,8 +4,7 @@ export type Skill = {
 
 // Keep this list simple: it’s meant to be edited frequently.
 export const skills: Skill[] = [
-  { name: 'React' },
-  { name: 'TypeScript' },
-  { name: 'Tailwind CSS' },
-  { name: 'Vite' },
+  { name: 'cursor' },
+  { name: 'java' },
+  { name: 'python' },
 ]

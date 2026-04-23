@@ -15,13 +15,13 @@ export function Contact({ links }: ContactProps) {
         <div className="flex items-end justify-between gap-6">
           <div>
             <p className="text-xs font-medium tracking-wider text-slate-500">
-              SECTION 03
+              {/* SECTION 03 */}
             </p>
             <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900">
               联系方式
             </h2>
             <p className="mt-2 text-sm text-slate-600">
-              邮箱、GitHub、社交媒体等（确保链接可点击）。
+              点击下方链接与我联系
             </p>
           </div>
         </div>

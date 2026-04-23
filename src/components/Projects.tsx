@@ -12,13 +12,13 @@ export function Projects({ projects }: ProjectsProps) {
         <div className="flex items-end justify-between gap-6">
           <div>
             <p className="text-xs font-medium tracking-wider text-slate-500">
-              SECTION 02
+              {/* SECTION 02 */}
             </p>
             <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900">
               项目展示
             </h2>
             <p className="mt-2 text-sm text-slate-600">
-              每个卡片包含截图、标题、描述、技术栈标签与链接（按 PRD 要求）。
+              {/* 每个卡片包含截图、标题、描述、技术栈标签与链接（按 PRD 要求）。 */}
             </p>
           </div>
         </div>

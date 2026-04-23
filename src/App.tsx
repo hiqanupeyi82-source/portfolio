@@ -14,14 +14,14 @@ function App() {
       <main className="mx-auto max-w-6xl">
         <Hero />
         <About
-          bio="这里写一段更详细的自我介绍：你关注的方向、擅长的技术，以及你希望解决的问题。"
+          bio="靠AI写代码的小白。"
           skills={skills}
         />
         <Projects projects={projects} />
         <Contact
           links={[
-            { label: 'Email', href: 'mailto:you@example.com' },
-            { label: 'GitHub', href: 'https://github.com/yourname' },
+            { label: 'Email', href: '506905826@qq.com' },
+            { label: 'GitHub', href: 'https://github.com/hiqanupeyi82-source' },
           ]}
         />
       </main>

@@ -5,8 +5,8 @@ type HeroProps = {
 
 // Above-the-fold section: quick intro + avatar.
 export function Hero({
-  title = '真话不假',
-  subtitle = '个人学习使用',
+  title = 'Truth never lies',
+  subtitle = '',
 }: HeroProps) {
   return (
     <section
@@ -18,7 +18,7 @@ export function Hero({
       </div>
       <div className="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-[1fr_240px]">
         <div>
-          <p className="text-sm text-slate-500">个人作品集</p>
+          <p className="text-base font-semibold text-slate-900">个人作品集</p>
           <h1 className="mt-3 text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">
             <span className="bg-gradient-to-r from-fuchsia-400 via-sky-400 to-emerald-300 bg-clip-text text-transparent">
               {title}

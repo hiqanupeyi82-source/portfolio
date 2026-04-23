@@ -13,7 +13,7 @@ export function About({ bio, skills }: AboutProps) {
         <div className="flex items-end justify-between gap-6">
           <div>
             <p className="text-xs font-medium tracking-wider text-slate-500">
-              SECTION 01
+              {/* SECTION 01 */}
             </p>
             <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900">
               关于我
